@@ -3,6 +3,7 @@ import { UilTrashAlt } from "@iconscout/react-unicons";
 
 // Importing the costume components
 import Button from "../../Button/Button";
+import Checkbox from "./Checkbox/Checkbox";
 
 // Importing the style file
 import "./Item.css";
@@ -11,7 +12,9 @@ import "./Item.css";
 const Item = ({ label }) => {
   return (
     <li>
-      <div className="label">{label}</div>
+      <div className="label">
+        <Checkbox /> {label}
+      </div>
       <Button label="Remove" icon={<UilTrashAlt />} del />
     </li>
   );
