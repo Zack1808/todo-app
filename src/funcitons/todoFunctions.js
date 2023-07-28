@@ -13,11 +13,12 @@ export const addItem = (item, setTodos) => {
 };
 
 // Function that updates the completion state
-export const updateItem = (id, setItem, update) => {
+export const updateItem = (id, setItem, completed) => {
   setItem((prevState) => {
-    const index = prevState.findIndex((obj) => obj.id === id);
-    prevState[index].completed = update;
-    return [...prevState];
+    return prevState.map((prev) => {
+      if (prev.id === id) return { ...prev, completed };
+      return prev;
+    });
   });
 };
 

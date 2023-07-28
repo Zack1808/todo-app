@@ -18,12 +18,13 @@ const Item = ({ label, id, completed, update, remove }) => {
   // Function that will handle the update
   const updateItem = (updated) => {
     update(id, updated);
+    console.log(updated);
   };
 
   return (
     <li>
       <div className="label">
-        <Checkbox isChecked={completed} update={updateItem} /> {label}
+        <Checkbox checked={completed} update={updateItem} /> {label}
       </div>
       <Button label="Remove" icon={<UilTrashAlt />} del click={removeItem} />
     </li>
