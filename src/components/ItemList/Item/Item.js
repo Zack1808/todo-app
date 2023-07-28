@@ -18,7 +18,6 @@ const Item = ({ label, id, completed, update, remove }) => {
   // Function that will handle the update
   const updateItem = (updated) => {
     update(id, updated);
-    console.log(updated);
   };
 
   return (

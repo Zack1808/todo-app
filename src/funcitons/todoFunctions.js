@@ -14,19 +14,12 @@ export const addItem = (item, setTodos) => {
 
 // Function that updates the completion state
 export const updateItem = (id, setItem, completed) => {
-  setItem((prevState) => {
-    return prevState.map((prev) => {
-      if (prev.id === id) return { ...prev, completed };
-      return prev;
-    });
-  });
+  setItem((prevState) =>
+    prevState.map((prev) => (prev.id === id ? { ...prev, completed } : prev))
+  );
 };
 
 // Function that will delete the item for the list
 export const deleteItem = (id, setTodos) => {
-  setTodos((prevState) => {
-    const index = prevState.findIndex((obj) => obj.id === id);
-    prevState.splice(index, 1);
-    return [...prevState];
-  });
+  setTodos((prevState) => prevState.filter((prev) => prev.id !== id));
 };
