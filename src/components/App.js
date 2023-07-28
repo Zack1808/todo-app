@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // Importing costume components
 import Form from "./Form/Form";
@@ -14,6 +14,17 @@ import "./App.css";
 const App = () => {
   // Setting up the state
   const [todos, setTodos] = useState([]);
+
+  // Fetching the todos on localStorage
+  useEffect(() => {
+    const list = JSON.parse(localStorage.getItem("jpn-todo-app"));
+    if (list) setTodos(list);
+  }, []);
+
+  // Setting the todo list on localStorage
+  useEffect(() => {
+    localStorage.setItem("jpn-todo-app", JSON.stringify(todos));
+  }, [todos]);
 
   // Function that will handle adding the new todo item
   const submition = (item) => {
@@ -36,7 +47,6 @@ const App = () => {
         placeholder="Enter item..."
         submit={submition}
       />
-      {console.log(todos)}
       <ItemList items={todos} remove={remove} update={update} />
     </div>
   );
