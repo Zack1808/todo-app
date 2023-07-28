@@ -9,13 +9,23 @@ import Checkbox from "./Checkbox/Checkbox";
 import "./Item.css";
 
 // Creating the Item component
-const Item = ({ label, completed }) => {
+const Item = ({ label, id, completed, update, remove }) => {
+  // Funciton that will remove an item
+  const removeItem = () => {
+    remove(id);
+  };
+
+  // Function that will handle the update
+  const updateItem = (updated) => {
+    update(id, updated);
+  };
+
   return (
     <li>
       <div className="label">
-        <Checkbox isChecked={completed} /> {label}
+        <Checkbox isChecked={completed} update={updateItem} /> {label}
       </div>
-      <Button label="Remove" icon={<UilTrashAlt />} del />
+      <Button label="Remove" icon={<UilTrashAlt />} del click={removeItem} />
     </li>
   );
 };

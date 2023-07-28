@@ -4,6 +4,9 @@ import React, { useState } from "react";
 import Form from "./Form/Form";
 import ItemList from "./ItemList/ItemList";
 
+// Importing the reducers
+import { ACTIONS, todoReducer } from "../reducers/todoReducer";
+
 // Imoprting the style file
 import "./App.css";
 
@@ -14,15 +17,15 @@ const App = () => {
 
   // Function that will handle adding the new todo item
   const submition = (item) => {
-    setTodos((prevState) => {
-      const data = {
-        id: crypto.randomUUID(),
-        label: item,
-        completed: false,
-        completionDate: "",
-      };
-      return [...prevState, data];
-    });
+    todoReducer(ACTIONS.ADD, item, setTodos, "", "");
+  };
+
+  const remove = (id) => {
+    todoReducer(ACTIONS.REMOVE, "", setTodos, id, "");
+  };
+
+  const update = (id, update) => {
+    todoReducer(ACTIONS.UPDATE, "", setTodos, id, update);
   };
 
   return (
@@ -34,7 +37,7 @@ const App = () => {
         submit={submition}
       />
       {console.log(todos)}
-      <ItemList items={todos} />
+      <ItemList items={todos} remove={remove} update={update} />
     </div>
   );
 };

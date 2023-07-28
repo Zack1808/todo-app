@@ -5,15 +5,20 @@ import { UilCheck } from "@iconscout/react-unicons";
 import "./Checkbox.css";
 
 // Creating the Checkbox component
-const Checkbox = ({ isChecked }) => {
+const Checkbox = ({ isChecked, update }) => {
   // Setting up the state
   const [checked, setChecked] = useState(isChecked);
+
+  // Function that will handle the checking
+  const handleClick = () => {
+    setChecked((prevState) => !prevState);
+    update(!checked);
+  };
+
   return (
     <div
       className={`checkbox-container ${checked ? "checked" : ""}`}
-      onClick={() => {
-        setChecked((prevState) => !prevState);
-      }}
+      onClick={handleClick}
     >
       {checked && <UilCheck />}
     </div>

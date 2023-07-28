@@ -4,9 +4,9 @@ import React from "react";
 import "./Button.css";
 
 // Creating the button component
-const Button = ({ label = "label", icon, del }) => {
+const Button = ({ label = "label", icon, del, click }) => {
   return (
-    <button className={`btn ${del ? "delete" : ""}`}>
+    <button className={`btn ${del ? "delete" : ""}`} onClick={click}>
       <span>
         <p>{label}</p>
         {icon}

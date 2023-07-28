@@ -7,14 +7,21 @@ import Item from "./Item/Item";
 import "./ItemList.css";
 
 // Creating the ItemList component
-const ItemList = ({ items }) => {
+const ItemList = ({ items, update, remove }) => {
   return (
     <div className="item-list-container">
       <h2>Todo List</h2>
       <ul>
         {items.length > 0 ? (
           items.map((item) => (
-            <Item label={item.label} key={item.id} completed={item.completed} />
+            <Item
+              id={item.id}
+              label={item.label}
+              key={item.id}
+              completed={item.completed}
+              update={update}
+              remove={remove}
+            />
           ))
         ) : (
           <li>No items</li>
