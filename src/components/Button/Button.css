@@ -1,0 +1,49 @@
+/* Styling the Button component */
+.btn {
+  padding: 3px;
+  background-color: var(--txt-color);
+  border: none;
+  clip-path: polygon(
+    0.7em 0,
+    100% 0,
+    100% calc(100% - 0.7em),
+    calc(100% - 0.7em) 100%,
+    0 100%,
+    0 0.7em
+  );
+}
+
+.btn span {
+  display: flex;
+  gap: 10px;
+  font-size: clamp(1rem, 10vw, 1.1rem);
+  justify-content: center;
+  align-items: center;
+  padding: 0.7em 1.3em;
+  clip-path: polygon(
+    0.7em 0,
+    100% 0,
+    100% calc(100% - 0.7em),
+    calc(100% - 0.7em) 100%,
+    0 100%,
+    0 0.7em
+  );
+  background-color: var(--txt-color);
+  font-weight: bolder;
+  color: var(--bg-color);
+  transition: 0.3s ease-in-out;
+}
+
+.btn:hover span {
+  background-color: var(--bg-color);
+  color: var(--txt-color);
+}
+
+.btn.delete {
+  --txt-color: hsl(0, 79%, 55%);
+  --bg-color: hsl(0 0% 90%);
+}
+
+.btn.delete:hover span {
+  --bg-color: hsl(0 0% 20%);
+}
