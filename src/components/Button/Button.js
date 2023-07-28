@@ -8,7 +8,7 @@ const Button = ({ label = "label", icon, del }) => {
   return (
     <button className={`btn ${del ? "delete" : ""}`}>
       <span>
-        {label}
+        <p>{label}</p>
         {icon}
       </span>
     </button>

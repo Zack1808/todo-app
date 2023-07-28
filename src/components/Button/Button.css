@@ -47,3 +47,9 @@
 .btn.delete:hover span {
   --bg-color: hsl(0 0% 20%);
 }
+
+@media (width < 650px) {
+  .btn p {
+    display: none;
+  }
+}

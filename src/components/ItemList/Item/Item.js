@@ -9,11 +9,11 @@ import Checkbox from "./Checkbox/Checkbox";
 import "./Item.css";
 
 // Creating the Item component
-const Item = ({ label }) => {
+const Item = ({ label, completed }) => {
   return (
     <li>
       <div className="label">
-        <Checkbox /> {label}
+        <Checkbox isChecked={completed} /> {label}
       </div>
       <Button label="Remove" icon={<UilTrashAlt />} del />
     </li>
