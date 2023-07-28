@@ -13,13 +13,10 @@ import "./App.css";
 // Creating the App component
 const App = () => {
   // Setting up the state
-  const [todos, setTodos] = useState([]);
-
-  // Fetching the todos on localStorage
-  useEffect(() => {
-    const list = JSON.parse(localStorage.getItem("jpn-todo-app"));
-    if (list) setTodos(list);
-  }, []);
+  const [todos, setTodos] = useState(() => {
+    const todoList = localStorage.getItem("jpn-todo-app");
+    return todoList === null ? [] : JSON.parse(todoList);
+  });
 
   // Setting the todo list on localStorage
   useEffect(() => {
