@@ -2,6 +2,7 @@ import React from "react";
 
 // Importing costume components
 import Form from "./Form/Form";
+import ItemList from "./ItemList/ItemList";
 
 // Imoprting the style file
 import "./App.css";
@@ -12,6 +13,7 @@ const App = () => {
     <div className="app-container">
       <h1>Todo App</h1>
       <Form label="Add new Item" placeholder="Enter item..." />
+      <ItemList />
     </div>
   );
 };
